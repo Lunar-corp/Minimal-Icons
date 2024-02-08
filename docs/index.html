@@ -58,12 +58,15 @@
           }
 
           fetch('./icons/potion-empty.svg').then(response => handleResponse(response));
+          fetch('./icons/potion-low.svg').then(response => handleResponse(response));
+          fetch('./icons/potion-medium.svg').then(response => handleResponse(response));
           fetch('./icons/potion-full.svg').then(response => handleResponse(response));
           fetch('./icons/potion-life.svg').then(response => handleResponse(response));
-          fetch('./icons/potion-low.svg').then(response => handleResponse(response));
           fetch('./icons/potion-mana.svg').then(response => handleResponse(response));
-          fetch('./icons/potion-medium.svg').then(response => handleResponse(response));
           fetch('./icons/potion-poison.svg').then(response => handleResponse(response));
+
+          fetch('./icons/heart.svg').then(response => handleResponse(response));
+          fetch('./icons/shield.svg').then(response => handleResponse(response));
 
           return {
             size,
