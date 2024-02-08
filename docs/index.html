@@ -1,21 +1,80 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link href="./reset.css" rel="stylesheet" />
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+
   <body>
+    <link ref src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <div id="app">{{ message }}</div>
+    <div id="app">
+      <header>
+        <img src="./img/minimal-icons.png"/>
+
+        <div class="settings">
+          <input type="number" v-model="size"/>
+          <input type="number" v-model="stroke"/>
+          <input type="color" v-model="color"/>
+        </div>
+      </header>
+
+      <div id="icons">
+        <svg v-for="icon in icons" 
+        class="icon"
+        v-html="icon" 
+        xmlns="http://www.w3.org/2000/svg" 
+        :width="size" 
+        :height="size" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        :stroke="color" 
+        :stroke-width="stroke" 
+        stroke-linecap="round" 
+        stroke-linejoin="round">
+        </svg>
+      </div>
+      
+
+      
+
+    </div>
 
     <script>
       const { createApp, ref } = Vue;
 
       createApp({
         setup() {
-          const message = ref("Hello Minimal Icons!");
+          const size = ref(24);
+          const color = ref('#FFFFFF');
+          const stroke = ref(1.5);
+          const icons = ref([]);
+
+          handleResponse = async (response) => {
+            const svgString = await response.text()
+            const contenuSVG = svgString.match(/<svg[^>]*>([\s\S]*?)<\/svg>/)[1];
+            icons.value.push(contenuSVG);
+          }
+
+          fetch('./icons/potion-empty.svg').then(response => handleResponse(response));
+          fetch('./icons/potion-full.svg').then(response => handleResponse(response));
+          fetch('./icons/potion-life.svg').then(response => handleResponse(response));
+          fetch('./icons/potion-low.svg').then(response => handleResponse(response));
+          fetch('./icons/potion-mana.svg').then(response => handleResponse(response));
+          fetch('./icons/potion-medium.svg').then(response => handleResponse(response));
+          fetch('./icons/potion-poison.svg').then(response => handleResponse(response));
+
           return {
-            message,
+            size,
+            icons,
+            color,
+            stroke,
           };
         },
       }).mount("#app");
+
+      
     </script>
   </body>
 </html>

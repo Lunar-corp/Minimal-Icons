@@ -1,3 +1,3 @@
 <p align="center">
-<img src="./img/minimal-icons.png"/>
+<img src="./docs/img/minimal-icons.png"/>
 </p>
