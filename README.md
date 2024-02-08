@@ -1,5 +1,5 @@
-<div style="text-align: center;">
+<p align="center">
 
 ![Minimal Icons](/img/minimal-icons.png)
 
-</div>
+</p>
