@@ -1,0 +1,24 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    :width="size"
+    :height="size"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    :stroke-width="stroke"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line x1="12" y1="7" x2="12" y2="2" /><line x1="12" y1="22" x2="12" y2="17" /><path d="m16.33,13.35v-2.69c0-.71-.38-1.37-1-1.73l-2.33-1.35c-.62-.36-1.38-.36-2,0l-2.33,1.35c-.62.36-1,1.02-1,1.73v2.69c0,.71.38,1.37,1,1.73l2.33,1.35c.62.36,1.38.36,2,0l2.33-1.35c.62-.36,1-1.02,1-1.73Z" />
+  </svg>
+</template>
+
+<script setup>
+  const props = defineProps({
+    size: { type: [String, Number], default: 24 },
+    stroke: { type: [String, Number], default: 1.5 },
+  });
+</script>
+
+<style lang="scss" scoped></style>
